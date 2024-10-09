@@ -95,6 +95,18 @@ expresslrs_rf_pref_params_s ExpressLRS_AirRateRFperf[RATE_MAX] = {
     {9, -115, 10798, 4000, 2500,  0, 5000, SNR_SCALE(-1), SNR_SCALE(6.5)}};
 #endif
 
+#if defined(RADIO_LESS)
+
+#include "WireDriver.h"
+WireDriver DMA_ATTR Radio;
+
+expresslrs_mod_settings_s ExpressLRS_AirRateConfig[RATE_MAX] = {
+    {0, RADIO_TYPE_WIRE, RATE_LORA_200HZ, 0, 0, 0, 8, TLM_RATIO_1_64, 4, 5000, OTA4_PACKET_SIZE, 1}};
+
+expresslrs_rf_pref_params_s ExpressLRS_AirRateRFperf[RATE_MAX] = {
+    {0, -112, 4380, 3000, 2500, 600, 5000, DYNPOWER_SNR_THRESH_NONE, DYNPOWER_SNR_THRESH_NONE}};
+#endif
+
 expresslrs_mod_settings_s *get_elrs_airRateConfig(uint8_t index)
 {
     if (RATE_MAX <= index)

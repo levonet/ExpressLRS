@@ -13,6 +13,8 @@
 #include "LR1121Driver.h"
 #elif defined(RADIO_SX128X)
 #include "SX1280Driver.h"
+#elif defined(RADIO_LESS)
+#include "WireDriver.h"
 #else
 #error Invalid radio configuration!
 #endif

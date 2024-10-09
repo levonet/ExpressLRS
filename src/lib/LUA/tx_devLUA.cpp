@@ -27,6 +27,8 @@
 #define STR_LUA_PACKETRATES \
     "50Hz(-115dBm);100Hz Full(-112dBm);150Hz(-112dBm);250Hz(-108dBm);333Hz Full(-105dBm);500Hz(-105dBm);" \
     "D250(-104dBm);D500(-104dBm);F500(-104dBm);F1000(-104dBm)"
+#elif defined(RADIO_LESS)
+#define STR_LUA_PACKETRATES "200Hz(-112dBm)"
 #else
 #error Invalid radio configuration!
 #endif

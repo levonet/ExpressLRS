@@ -272,6 +272,16 @@ extern bool pwmSerialDefined;
         defined(UNIT_TEST))
 #error "Regulatory_Domain is not defined for 900MHz device. Check user_defines.txt!"
 #endif
+#elif defined(RADIO_LESS)
+#undef Regulatory_Domain_ISM_2400
+#undef Regulatory_Domain_AU_915
+#undef Regulatory_Domain_EU_868
+#undef Regulatory_Domain_IN_866
+#undef Regulatory_Domain_FCC_915
+#undef Regulatory_Domain_AU_433
+#undef Regulatory_Domain_EU_433
+#undef Regulatory_Domain_US_433
+#undef Regulatory_Domain_US_433_WIDE
 #else
 #error "Either RADIO_SX127X, RADIO_LR1121 or RADIO_SX128X must be defined!"
 #endif

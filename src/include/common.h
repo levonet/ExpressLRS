@@ -9,6 +9,8 @@
 #include "LR1121Driver.h"
 #elif defined(RADIO_SX128X)
 #include "SX1280Driver.h"
+#elif defined(RADIO_LESS)
+#include "WireDriver.h"
 #else
 #error "Radio configuration is not valid!"
 #endif
@@ -110,6 +112,7 @@ enum {
     RADIO_TYPE_LR1121_LORA_DUAL,
     RADIO_TYPE_SX128x_LORA,
     RADIO_TYPE_SX128x_FLRC,
+    RADIO_TYPE_WIRE,
 };
 
 typedef enum : uint8_t
@@ -291,6 +294,11 @@ extern LR1121Driver Radio;
 #define RATE_BINDING RATE_LORA_50HZ
 
 extern SX1280Driver Radio;
+#elif defined(RADIO_LESS)
+#define RATE_MAX 1
+#define RATE_BINDING RATE_LORA_200HZ
+
+extern WireDriver Radio;
 #endif
 #endif // UNIT_TEST
 
